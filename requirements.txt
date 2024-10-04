@@ -1,0 +1,6 @@
+robotframework==5.0.1  # The main framework for writing test cases
+robotframework-seleniumlibrary==6.0.0  # For browser automation with Selenium
+selenium==4.8.0  # Selenium WebDriver for browser interaction
+robotframework-processlibrary==1.0  # For the Process Library (used in your test)
+robotframework-operatingsystem==2.0.0  # For Operating System interactions
+robotframework-collections==2.1.2  # For Collection operations

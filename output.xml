@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-03T17:46:55.293701" rpa="false" schemaversion="5">
+<suite id="s1" name="First Test" source="E:\Software House\Roboat Framwork\first_test.robot">
+<test id="s1-t1" name="Test : URL Verification" line="21">
+<kw name="Verify the URL by searching for a Product" owner="functions">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-03T17:46:55.693848" level="INFO">Opening browser 'chrome' to base url 'https://demowebshop.tricentis.com/'.</msg>
+<arg>${Dashboard_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-03T17:46:55.693848" elapsed="5.505935"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T17:47:01.200781" level="INFO">Typing text 'phone' into text field 'id=small-searchterms'.</msg>
+<arg>${top_Searchbar}</arg>
+<arg>${Short_term_search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T17:47:01.199783" elapsed="0.280904"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-03T17:47:01.481683" level="INFO">Clicking button 'xpath=//input[@class="button-1 search-box-button"]'.</msg>
+<arg>${Search_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T17:47:01.480687" elapsed="0.959183"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Searched_Product_img}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-03T17:47:02.439870" elapsed="0.031255"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2024-10-03T17:47:02.507000" level="INFO">${Searched_URL} = https://demowebshop.tricentis.com/search?q=phone</msg>
+<var>${Searched_URL}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2024-10-03T17:47:02.471125" elapsed="0.035875"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-03T17:47:02.510404" level="INFO">https://demowebshop.tricentis.com/search?q=phone</msg>
+<arg>${Searched_URL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-03T17:47:02.507000" elapsed="0.004420"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-03T17:47:02.513940" level="INFO">phone</msg>
+<arg>${Short_term_search}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-03T17:47:02.512917" elapsed="0.001023"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2024-10-03T17:47:02.514943" level="FAIL">Evaluating expression "'https://demowebshop.tricentis.com/search?q=phone' contains 'phone'" failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<arg>'${Searched_URL}' contains '${Short_term_search}'</arg>
+<arg>Log</arg>
+<arg>Test Passed: URL ends with the search keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2024-10-03T17:47:02.513940" elapsed="0.002126">Evaluating expression "'https://demowebshop.tricentis.com/search?q=phone' contains 'phone'" failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2024-10-03T17:47:02.516066" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>'${Searched_URL}' contains '${Short_term_search}'</arg>
+<arg>Fail</arg>
+<arg>Test Failed: URL does not end with the search keyword</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="NOT RUN" start="2024-10-03T17:47:02.516066" elapsed="0.001553"/>
+</kw>
+<status status="FAIL" start="2024-10-03T17:46:55.693848" elapsed="6.823771">Evaluating expression "'https://demowebshop.tricentis.com/search?q=phone' contains 'phone'" failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</kw>
+<status status="FAIL" start="2024-10-03T17:46:55.693848" elapsed="6.823771">Evaluating expression "'https://demowebshop.tricentis.com/search?q=phone' contains 'phone'" failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<status status="FAIL" start="2024-10-03T17:46:55.293701" elapsed="7.223918"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="First Test">First Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-03T17:47:02.516066" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+</errors>
+</robot>

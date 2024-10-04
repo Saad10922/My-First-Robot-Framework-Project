@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-04T13:17:34.506405" rpa="false" schemaversion="5">
+<suite id="s1" name="First Test" source="E:\Software House\Roboat Framwork\Tests\first_test.robot">
+<test id="s1-t1" name="Test : Product Listing" line="28">
+<kw name="Verify the product with all its details" owner="functions">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:35.026708" level="INFO">Opening browser 'chrome' to base url 'https://demowebshop.tricentis.com/'.</msg>
+<arg>${Dashboard_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-04T13:17:35.026708" elapsed="11.351341"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:46.379823" level="INFO">Clicking link 'xpath=//a[@href="/computers"]'.</msg>
+<arg>${Computers_catagory}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:46.379278" elapsed="0.959880"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Catagory_Heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:47.340201" elapsed="0.079585"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:47.419786" level="INFO">Clicking element 'xpath=//img[@title="Show products in category Desktops"]'.</msg>
+<arg>${Desktop_Subcat}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:47.419786" elapsed="0.857916"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Subcat_heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.277702" elapsed="0.039989"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.348678" level="INFO">Element 'xpath=//div[@class="product-item"][1]' is displayed.</msg>
+<arg>${Details_div}</arg>
+<arg>${Products_img}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.317691" elapsed="0.030987"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.373014" level="INFO">Element 'xpath=//div[@class="product-item"][1]' is displayed.</msg>
+<arg>${Details_div}</arg>
+<arg>${Product_link}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.348678" elapsed="0.025643"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.430033" level="INFO">Element 'xpath=//div[@class="product-item"][1]' is displayed.</msg>
+<arg>${Details_div}</arg>
+<arg>${Product_Rating}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.374321" elapsed="0.055712"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.462483" level="INFO">Element 'xpath=//div[@class="product-item"][1]' is displayed.</msg>
+<arg>${Details_div}</arg>
+<arg>${Products_price}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.430033" elapsed="0.032450"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.493168" level="INFO">Element 'xpath=//div[@class="product-item"][1]' is displayed.</msg>
+<arg>${Details_div}</arg>
+<arg>${Products_Add_Button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.463784" elapsed="0.029902"/>
+</kw>
+<status status="PASS" start="2024-10-04T13:17:35.026708" elapsed="13.466978"/>
+</kw>
+<kw name="Verify the Number of Products do not Exceeds the Expected count" owner="functions">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:48.495236" level="INFO">Opening url 'https://demowebshop.tricentis.com/'</msg>
+<arg>${Dashboard_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-04T13:17:48.495236" elapsed="0.706691"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:49.209945" level="INFO">Clicking link 'xpath=//a[@href="/computers"]'.</msg>
+<arg>${Computers_catagory}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:49.201927" elapsed="0.825533"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Catagory_Heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:50.027460" elapsed="0.066699"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:50.095503" level="INFO">Clicking element 'xpath=//img[@title="Show products in category Desktops"]'.</msg>
+<arg>${Desktop_Subcat}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:50.094159" elapsed="0.901517"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Subcat_heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:50.996998" elapsed="0.050879"/>
+</kw>
+<kw name="Get Selected List Label" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:51.191561" level="INFO">${Expected_value} = 8</msg>
+<var>${Expected_value}</var>
+<arg>${Expected_count_box}</arg>
+<doc>Returns the label of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.048895" elapsed="0.142666"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:51.212545" level="INFO">${Actual_Value} = 6</msg>
+<var>${Actual_Value}</var>
+<arg>${item_Box}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.191561" elapsed="0.020984"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-04T13:17:51.212545" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>${Expected_value}&gt;=${Actual_Value}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.212545" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.212545" elapsed="0.003681"/>
+</kw>
+<status status="PASS" start="2024-10-04T13:17:48.493686" elapsed="2.722540"/>
+</kw>
+<kw name="Verifing The Customization Details" owner="functions">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:51.217388" level="INFO">Opening url 'https://demowebshop.tricentis.com/'</msg>
+<arg>${Dashboard_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.217388" elapsed="0.646735"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:51.864675" level="INFO">Typing text 'Simple Computer' into text field 'id=small-searchterms'.</msg>
+<arg>${top_Searchbar}</arg>
+<arg>${Simple Computer}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:51.864123" elapsed="0.392192"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:52.256315" level="INFO">Clicking button 'xpath=//input[@class="button-1 search-box-button"]'.</msg>
+<arg>${Search_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:52.256315" elapsed="0.986129"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Search Heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:53.243862" elapsed="0.038574"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:53.284203" level="INFO">Clicking element 'xpath=//img[@title="Show details for Simple Computer"]'.</msg>
+<arg>${Simple Computer img}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-04T13:17:53.283783" elapsed="1.838405"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Searched Item Heading}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.122188" elapsed="0.061198"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:55.235964" level="INFO">Element 'xpath=(//label[@class="text-prompt"])[1]' is displayed.</msg>
+<arg>${Processor Customization}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.183386" elapsed="0.052578"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:55.299994" level="INFO">Element 'xpath=(//label[@class="text-prompt"])[2]' is displayed.</msg>
+<arg>${Ram Customization}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.236524" elapsed="0.063470"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:55.353891" level="INFO">Element 'xpath=(//label[@class="text-prompt"])[3]' is displayed.</msg>
+<arg>${HDD Customization}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.299994" elapsed="0.053897"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-10-04T13:17:55.409983" level="INFO">Element 'xpath=(//label[@class="text-prompt"])[4]' is displayed.</msg>
+<arg>${Software Customization}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.353891" elapsed="0.056092"/>
+</kw>
+<status status="PASS" start="2024-10-04T13:17:51.217388" elapsed="4.193154"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-04T13:17:55.410542" elapsed="2.336921"/>
+</kw>
+<status status="PASS" start="2024-10-04T13:17:35.021355" elapsed="22.728218"/>
+</test>
+<status status="PASS" start="2024-10-04T13:17:34.513299" elapsed="23.236274"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="First Test">First Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
