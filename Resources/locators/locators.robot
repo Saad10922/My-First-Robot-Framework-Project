@@ -78,3 +78,38 @@ ${Searched Item Heading}        xpath=//h1[@itemprop="name"]
 ${Add to Cart Button}            //input[@class="button-1 add-to-cart-button"]
 ${Unavaliable product}            Custom T-Shirt
 ${Unavaliable Product Img}        xpath=//img[@title="Show details for Custom T-Shirt"]
+
+
+#     Locators For Verifing Price Filters
+${Max Price Tag}                    xpath=(//span[@class="PriceRange"])[1]       
+${Price of Product 1}            xpath=(//span[@class="price actual-price"])[1]
+${Price of Product 2}            xpath=(//span[@class="price actual-price"])[2]
+${Price of Product 3}            xpath=(//span[@class="price actual-price"])[3]
+
+${Price Range}                   xpath=//a[@href="https://demowebshop.tricentis.com/desktops?price=-1000"]
+
+
+#         Locators for Products Sorting  
+${Product Names}         xpath=//h2[@class="product-title"]//a
+${Sorting List}            id=products-orderby
+${Product Prices}        xpath=//span[@class="price actual-price"]
+
+
+
+#        Locators for Add to Cart
+${Notebook_Subcat}        xpath=(//a[@href="/notebooks"])[4]
+${Notebook_Heading}       xpath=//h1[.="Notebooks"]
+${Laptop Product link}       xpath=(//a[@href="/141-inch-laptop"])[2]
+${Jewelry Catagory}        xpath=(//a[@href="/jewelry"])[3]
+${Jewelry Heading}        xpath=//h1[.="Jewelry"]
+${Dimond Heart}            xpath=(//img[@title="Show details for Black & White Diamond Heart"])[2]
+${Product Heading}    xpath=//h1[@itemprop="name"]
+${Add to Cart Button}        xpath=(//input[@type="button"])[3]
+${Apperal and Shoes Cat}    xpath=//a[@href="/apparel-shoes"]
+${Apperal and Shoes Heading}    xpath=//h1[.="Apparel & Shoes"]
+${Casual Belt img}        xpath=//img[@title="Show details for Casual Golf Belt"]
+${Casual Belt link}        xpath=//a[.="Casual Golf Belt"]
+${Cart link}            xpath=(//span[@class="cart-label"])[1]
+${Cart items}            xpath=//a[@class="product-name"]
+${Cart product Checkbox}    xpath=//input[@name="removefromcart"]
+${Update Checkbox}        xpath=//input[@name="updatecart"]
