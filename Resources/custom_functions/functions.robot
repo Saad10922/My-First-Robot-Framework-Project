@@ -8,12 +8,18 @@ Resource    ../locators/locators.robot
 
 *** Keywords ***
 Open Chrome Browser
+        [Documentation]    Opens Chrome browser and navigates to the login URL.
+
          Open Browser  ${Login_URL}  ${Browser}
 
 Close Browser Teardown
+        [Documentation]    Closes the browser session after test completion.
+
         Close Browser
     
 Open Browser and Select Computers Catagrory and then a Subcatagory of Desktops
+        [Documentation]    Opens the browser and navigates to the 'Computers' category, selecting 'Desktops' as a subcategory.
+
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
         Click Element    ${Desktop_Subcat}
@@ -21,6 +27,8 @@ Open Browser and Select Computers Catagrory and then a Subcatagory of Desktops
 
 #        Keywords for Login Functionality
 Login with Valid Data
+    [Documentation]    Logs in with valid email and password credentials.
+
 #     Open Browser     ${Login_URL}  ${Browser}
     Input Text       ${Login_Email_Field}    ${Valid_Email}
     Input Text    ${Password_Field}    ${Valid_Password}
@@ -29,6 +37,8 @@ Login with Valid Data
     Wait Until Location Is    ${Dashboard_URL}    timeout=5s
 #     [Teardown]     Close Browser
 Login with Invalid Email
+    [Documentation]    Attempts login using an invalid email and checks for the appropriate error message.
+
     Go To    ${Login_URL}
     Input Text       ${Login_Email_Field}    ${Invalid_Email}
     Input Text       ${Password_Field}    ${Invalid_Pass}
@@ -37,6 +47,8 @@ Login with Invalid Email
     Page Should Contain    ${Text_for_invalid}   
     
 Login with Invalid Password
+    [Documentation]    Attempts login using an invalid password and checks for the appropriate error message.
+
     Go To    ${Login_URL}
     Input Text       ${Login_Email_Field}    ${Invalid_Email}
     Input Text       ${Password_Field}    ${Valid_Password}
@@ -45,6 +57,8 @@ Login with Invalid Password
     Page Should Contain    ${Text_for_invalid}   
    
 Login without Email
+    [Documentation]    Attempts login without entering an email and checks for the appropriate error message.
+
     Go To    ${Login_URL}
     Input Text       ${Password_Field}    ${Valid_Password}
     Select Checkbox    ${RemeberMe_Box}
@@ -53,6 +67,8 @@ Login without Email
     
 
 Login without Password
+    [Documentation]    Attempts login without entering a password and verifies the error message.
+
     Go To    ${Login_URL}
     Input Text       ${Login_Email_Field}    ${Valid_Email}
     Select Checkbox    ${RemeberMe_Box}
@@ -62,26 +78,37 @@ Login without Password
 
 #        Keywords for Logout Functionlaity
 Logout from the shop
+    [Documentation]    Logs out from the shop and verifies if the login link is visible again.
+
     Login with Valid Data
+    
     Click Link  ${logout_link}
     Element Should Be Visible    ${login_link}
 
 #          Search Functionality
 Search for a Valid Product
+        [Documentation]    Searches for a valid product and verifies that the product image is visible in search results.
+
         Input Text    ${top_Searchbar}   ${Valid_product}
         Click Button    ${Search_button}
         Wait Until Element Is Visible    ${Searched_Product_img}
 Search for Invalid Product
+    [Documentation]    Searches for an invalid product and checks for a 'no results' message.
+
         Input Text    ${top_Searchbar}   ${Invalid_Product}
         Click Button    ${Search_button}
         Page Should Contain    ${Text_for_invalid_Search} 
 Search with empty SearchBar
+    [Documentation]    Clicks the search button with an empty search bar and verifies the error message.
+
         Click Button    ${Search_button}
         Page Should Contain    ${Text_for_invalid_Search} 
 
 
 #        URL Verification
 Verify the URL by searching for a Product
+    [Documentation]    Verifies the URL contains the search term after searching for a product.
+
         Input Text    ${top_Searchbar}   ${Short_term_search}
         Click Button    ${Search_button}
         Wait Until Element Is Visible    ${Searched_Product_img}
@@ -90,6 +117,8 @@ Verify the URL by searching for a Product
         Log    ${Short_term_search}
         Should Contain     ${Searched_URL}    ${Short_term_search}
 Verify the URL by Selecting a Catagory
+    [Documentation]    Verifies the URL contains the category name when navigating to a category.
+
         Go To    ${Dashboard_URL}
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
@@ -100,6 +129,8 @@ Verify the URL by Selecting a Catagory
 
 #        Keywords for Product Listing
 Verify the product with all its details
+    [Documentation]    Verifies the product image, link, rating, price, and add-to-cart button are displayed correctly.
+
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
         Click Element    ${Desktop_Subcat}
@@ -112,6 +143,8 @@ Verify the product with all its details
 
         
 Verify the Number of Products do not Exceeds the Expected count 
+    [Documentation]    Verifies that the number of displayed products does not exceed the expected count.
+
         Go To    ${Dashboard_URL}
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
@@ -123,6 +156,8 @@ Verify the Number of Products do not Exceeds the Expected count
         Should Be True    ${result}
 
 Verifing The Customization Details
+    [Documentation]    Verifies customization options like processor, RAM, HDD, and software for a selected product.
+
         Go To    ${Dashboard_URL}
         Input Text    ${top_Searchbar}   ${Simple Computer}
         Click Button    ${Search_button}
@@ -136,6 +171,8 @@ Verifing The Customization Details
 
 #        Keywords for Verifing Product Avaliability
  Verify that the Add to cart Button is Avaliable when the Product is Avaliable
+     [Documentation]    Verifies the 'Add to Cart' button is available for an in-stock product.
+
         Input Text    ${top_Searchbar}   ${Simple Computer}
         Click Button    ${Search_button}
         Wait Until Element Is Visible    ${Search Heading}
@@ -144,6 +181,8 @@ Verifing The Customization Details
         Element Should Be Visible    ${Add to Cart Button}
 
 Verify that the Add to cart Button is not Avaliable when the Product is Out of Stock
+    [Documentation]    Verifies the 'Add to Cart' button is not available for an out-of-stock product.
+
         Input Text    ${top_Searchbar}   ${Unavaliable product}
         Click Button    ${Search_button}
         Wait Until Element Is Visible    ${Search Heading}
@@ -153,6 +192,8 @@ Verify that the Add to cart Button is not Avaliable when the Product is Out of S
          
 #        Keywords for Price Filters
 Verify that prices of all the displayed products should be According to the Filter Applied
+    [Documentation]    Verifies that all products are priced within the selected price range.
+
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
         Click Element    ${Desktop_Subcat}
@@ -171,6 +212,8 @@ Verify that prices of all the displayed products should be According to the Filt
         
  #            Keywords for Sorting Functionality
  Verifing the Sorting OF Products from A to Z
+     [Documentation]    Verifies that the products are sorted alphabetically from A to Z.
+
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
         Click Element    ${Desktop_Subcat}
@@ -188,6 +231,8 @@ Verify that prices of all the displayed products should be According to the Filt
          Should Be Equal As Strings    ${Actual_Product_Names}    ${Expected list}
  
  Verifing the Sorting OF Products from Z to A
+     [Documentation]    Verifies that the products are sorted alphabetically from Z to A.
+
         Go To    ${Dashboard_URL}
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
@@ -207,6 +252,8 @@ Verify that prices of all the displayed products should be According to the Filt
          Should Be Equal As Strings    ${Actual_Product_Names}    ${Expected list}
  
  Verifing the Sorting OF Products Prices from Low to high
+     [Documentation]    Verifies that the products are sorted by price in ascending order.
+
         Go To    ${Dashboard_URL}
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
@@ -227,6 +274,8 @@ Verify that prices of all the displayed products should be According to the Filt
          Should Be Equal     ${Actual_Product_Prices}    ${Expected list}
  
  Verifing the Sorting OF Products Prices from High to Low
+     [Documentation]    Verifies that the products are sorted by price in descending order.
+
         Go To    ${Dashboard_URL}
         Click Link    ${Computers_catagory}
         Wait Until Element Is Visible    ${Catagory_Heading}
@@ -249,6 +298,8 @@ Verify that prices of all the displayed products should be According to the Filt
  
  #        Keywords for Add to Cart Feature
 Verify by adding multiple productsto Cart
+    [Documentation]    Adds multiple products to the cart and verifies they are listed correctly in the cart.
+
         Login with Valid Data
         Go To    ${Dashboard_URL}
         Click Link    ${Jewelry Catagory}
