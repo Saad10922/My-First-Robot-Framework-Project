@@ -97,9 +97,9 @@ ${Product Prices}        xpath=//span[@class="price actual-price"]
 
 
 #        Locators for Add to Cart
-${Notebook_Subcat}        xpath=(//a[@href="/notebooks"])[4]
+${Notebook_Subcat}        xpath=//a[@href="/notebooks"]
 ${Notebook_Heading}       xpath=//h1[.="Notebooks"]
-${Laptop Product link}       xpath=(//a[@href="/141-inch-laptop"])[2]
+${Laptop Product link}       xpath=//h2[@class="product-title"]//a[.="14.1-inch Laptop"]
 ${Jewelry Catagory}        xpath=(//a[@href="/jewelry"])[3]
 ${Jewelry Heading}        xpath=//h1[.="Jewelry"]
 ${Dimond Heart}            xpath=(//img[@title="Show details for Black & White Diamond Heart"])[2]
@@ -107,9 +107,22 @@ ${Product Heading}    xpath=//h1[@itemprop="name"]
 ${Add to Cart Button}        xpath=(//input[@type="button"])[3]
 ${Apperal and Shoes Cat}    xpath=//a[@href="/apparel-shoes"]
 ${Apperal and Shoes Heading}    xpath=//h1[.="Apparel & Shoes"]
-${Casual Belt img}        xpath=//img[@title="Show details for Casual Golf Belt"]
+${Casual Belt img}        xpath=//img[@src="https://demowebshop.tricentis.com/content/images/thumbs/0000217_casual-golf-belt_125.jpeg"]
 ${Casual Belt link}        xpath=//a[.="Casual Golf Belt"]
-${Cart link}            xpath=(//span[@class="cart-label"])[1]
+${Cart link}            xpath=//a[@class="ico-cart"]//span[.="Shopping cart"]
 ${Cart items}            xpath=//a[@class="product-name"]
 ${Cart product Checkbox}    xpath=//input[@name="removefromcart"]
 ${Update Checkbox}        xpath=//input[@name="updatecart"]
+${Computers catagory}          xpath=(//a[@href="/computers"])[1]
+${Laptop Quantity Field}        id=addtocart_31_EnteredQuantity
+${Laptop Quantity in cart}        xpath=//td[@class="qty nobr"]//input[@class="qty-input"]
+${Country Select}        id=CountryId
+${State Select}        id=StateProvinceId
+${ZipcodeField}        id=ZipPostalCode
+${Estimate Shipping Button}        xpath=//input[@class="button-2 estimate-shipping-button"]
+${Ground Cost}        xpath=(//strong[@class="option-name"])[1]
+${NextDa Air Cost}        xpath=(//strong[@class="option-name"])[2]
+${2nd Day Air Cost}        xpath=(//strong[@class="option-name"])[3]
+${In Store Pickup Cost}        xpath=(//strong[@class="option-name"])[4]
+
+

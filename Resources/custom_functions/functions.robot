@@ -302,33 +302,30 @@ Verify by adding multiple productsto Cart
 
         Login with Valid Data
         Go To    ${Dashboard_URL}
-        Click Link    ${Jewelry Catagory}
-        Wait Until Element Is Visible    ${Jewelry Heading}
-        Click Image    ${Dimond Heart}
-        # Click Element    ${Notebook_Subcat}
-        # Wait Until Element Is Visible    ${Notebook_Heading}
-        # Scroll Element Into View    ${Laptop Product link}
-        # Click Link       ${Laptop Product link}
+        Mouse Over      ${Computers catagory}  
+        Click Element    ${Notebook_Subcat}
+        Wait Until Element Is Visible    ${Notebook_Heading}
+        Scroll Element Into View    ${Laptop Product link}
+        Click Element       ${Laptop Product link}
         Wait Until Element Is Visible    ${Product Heading}
         Click Button    ${Add to Cart Button}
-        sleep    3s
         ${Cart}=     Create List
         ${item}=     Get Text    ${Product Heading}
         Append To List    ${Cart}       ${item}
         Click link    ${Apperal and Shoes Cat}
-        Sleep    3s
         Wait Until Element Is Visible    ${Apperal and Shoes Heading}
         Click Element   ${Casual Belt img}
         Wait Until Element Is Visible    ${Product Heading}
         Click Button    ${Add to Cart Button}
         ${item}=     Get Text    ${Product Heading}
         Append To List    ${Cart}       ${item}
-        Click Link    ${Cart link}
+        sleep     3s
+        Click Element   ${Cart link}
         @{Cart items tags}    Get WebElements    ${Cart items}
-        ${Cart items names}
+        ${Cart items names}=    Create List
         FOR    ${element}    IN    @{Cart items tags}
-            ${name}    Get Text    ${element}
-            Append To List    ${Cart items names}
+            ${name}=    Get Text    ${element}
+            Append To List    ${Cart items names}    ${name}
             
         END
         Should Be Equal    ${Cart items names}   ${Cart}
@@ -337,6 +334,59 @@ Verify by adding multiple productsto Cart
             Select Checkbox    ${element}
         END
         Click Button    ${Update Checkbox}
+
+
+Verify by Increasing a Product's Quantity IN Cart
+    [Documentation]    Add same product in more Quantity and Verify the total Quantity from the cart
+
+        
+        Go To    ${Dashboard_URL}
+        Mouse Over      ${Computers catagory}  
+        Click Element    ${Notebook_Subcat}
+        Wait Until Element Is Visible    ${Notebook_Heading}
+        Scroll Element Into View    ${Laptop Product link}
+        Click Element       ${Laptop Product link}
+        Wait Until Element Is Visible    ${Product Heading}
+        Input Text    ${Laptop Quantity Field}    10
+        Click Button    ${Add to Cart Button}
+        Click Element   ${Cart link}
+        ${Quantity}=       Get Value    ${Laptop Quantity in cart}
+        Should Be Equal    ${Quantity}    10
+        Select Checkbox    ${Cart product Checkbox}
+        Click Button    ${Update Checkbox}
+
+
+#     Keywords for Delivery Estimation
+
+Verify the Delivery Cost Before Checkout
+        [Documentation]    Adding a producty to Cart and then Checking the Estimated Delivery in selected Country
+           
+        Go To    ${Dashboard_URL}
+        Click link    ${Apperal and Shoes Cat}
+        Wait Until Element Is Visible    ${Apperal and Shoes Heading}
+        Click Element   ${Casual Belt img}
+        Wait Until Element Is Visible    ${Product Heading}
+        Click Button    ${Add to Cart Button}
+        Click Element   ${Cart link}
+        Select From List By Value    ${Country Select}    57
+        Input Text    ${ZipcodeField}    40100
+        Click Button    ${Estimate Shipping Button}
+        Element Should Be Visible    ${Ground Cost}
+        Element Should Be Visible    ${NextDa Air Cost}
+        Element Should Be Visible    ${2nd Day Air Cost}
+        Element Should Be Visible    ${In Store Pickup Cost}
+        Select Checkbox    ${Cart product Checkbox}
+        Click Button    ${Update Checkbox}
+
+
+        
+
+
+
+           
+
+
+
 
 
 
