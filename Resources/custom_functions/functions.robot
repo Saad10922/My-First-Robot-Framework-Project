@@ -10,7 +10,7 @@ Resource    ../locators/locators.robot
 Open Chrome Browser
         [Documentation]    Opens Chrome browser and navigates to the login URL.
 
-         Open Browser  ${Login_URL}  ${Browser}
+         Open Browser  ${Login_URL}  ${Browser}  
 
 Close Browser Teardown
         [Documentation]    Closes the browser session after test completion.
@@ -377,6 +377,96 @@ Verify the Delivery Cost Before Checkout
         Element Should Be Visible    ${In Store Pickup Cost}
         Select Checkbox    ${Cart product Checkbox}
         Click Button    ${Update Checkbox}
+
+
+#    Keywords for Checkout Functionality
+
+Test the Checkout Functionality by giving all the valid credentials
+        Go To    ${Dashboard_URL}
+        Click link    ${Apperal and Shoes Cat}
+        Wait Until Element Is Visible    ${Apperal and Shoes Heading}
+        Click Element   ${Casual Belt img}
+        Wait Until Element Is Visible    ${Product Heading}
+        Click Button    ${Add to Cart Button}
+        Click Element   ${Cart link}
+        Select From List By Value    ${Country Select}    57
+        Input Text    ${ZipcodeField}    40100
+        Select Checkbox    ${Accepting Terms and Conditions}
+        Click Button    ${Checkout Button}
+        Select From List By Label    ${Select Billing Address}    New Address
+        Input Text   ${Fname in Billing Add}    ${Fname}
+        Input Text    ${Lname in Billing Add}    ${Lname}
+        Select From List By Value   ${Country Selector in Billing Add}    57
+        Select From List By Value    ${State Selector in Billing Add}      0
+        Input Text    ${City in Billing Add}    ${City} 
+        Input Text    ${Address1}    ${Address}
+        Input Text    ${Zipcode in Billing Add}    ${Zipcode}
+        Input Text    ${Phone Number in Billing Add}       03267553848
+        Click Button    ${Continue Button in Billing Add}
+        Wait Until Element Is Visible    ${Store Pickup Statement}
+        Click Button    ${Continue for Shipping Add}
+        Wait Until Element Is Visible    ${Ground Shipping Method}
+        Select Radio Button    ${Shipping Method}    ${Shipping Option}
+        Click Button    ${Shipping Method Continue Button}
+        Wait Until Element Is Visible    ${Billing Option}
+        Select Radio Button    ${Payment Method Group}    ${Cash On Delivery OPtion}
+        Click Button    ${Continue Button for Billing Option}
+        Wait Until Element Is Visible    ${Payment Ingormation}
+        Click Button    ${Continue Button for Payment Information}
+        Wait Until Element Is Visible    ${Product pic in Confirm Section}
+        Click Button    ${Final Order Confirmation Button}
+        Wait Until Element Is Visible    ${Order Confirmation Statement}
+        ${Current Order Number}=     Get Text    ${Order Number}
+        Click Button    ${Continue and Accept Confirmation}
+
+        
+# #        Keywords for Ordr History
+# Verify that the order you have confirmed appears in the Order History
+#         Go To    ${Dashboard_URL}
+#         Click link    ${Apperal and Shoes Cat}
+#         Wait Until Element Is Visible    ${Apperal and Shoes Heading}
+#         Click Element   ${Casual Belt img}
+#         Wait Until Element Is Visible    ${Product Heading}
+#         Click Button    ${Add to Cart Button}
+#         Click Element   ${Cart link}
+#         Select From List By Value    ${Country Select}    57
+#         Input Text    ${ZipcodeField}    40100
+#         Select Checkbox    ${Accepting Terms and Conditions}
+#         Click Button    ${Checkout Button}
+#         Select From List By Label    ${Select Billing Address}    New Address
+#         Input Text   ${Fname in Billing Add}    ${Fname}
+#         Input Text    ${Lname in Billing Add}    ${Lname}
+#         Select From List By Value   ${Country Selector in Billing Add}    57
+#         Select From List By Value    ${State Selector in Billing Add}      0
+#         Input Text    ${City in Billing Add}    ${City} 
+#         Input Text    ${Address1}    ${Address}
+#         Input Text    ${Zipcode in Billing Add}    ${Zipcode}
+#         Input Text    ${Phone Number in Billing Add}       03267553848
+#         Click Button    ${Continue Button in Billing Add}
+#         Wait Until Element Is Visible    ${Store Pickup Statement}
+#         Click Button    ${Continue for Shipping Add}
+#         Wait Until Element Is Visible    ${Ground Shipping Method}
+#         Select Radio Button    ${Shipping Method}    ${Shipping Option}
+#         Click Button    ${Shipping Method Continue Button}
+#         Wait Until Element Is Visible    ${Billing Option}
+#         Select Radio Button    ${Payment Method Group}    ${Cash On Delivery OPtion}
+#         Click Button    ${Continue Button for Billing Option}
+#         Wait Until Element Is Visible    ${Payment Ingormation}
+#         Click Button    ${Continue Button for Payment Information}
+#         Wait Until Element Is Visible    ${Product pic in Confirm Section}
+#         Click Button    ${Final Order Confirmation Button}
+#         Wait Until Element Is Visible    ${Order Confirmation Statement}
+#         ${Current Order Number}=     Get Text    ${Order Number}
+#         Click Button    ${Continue and Accept Confirmation}
+#         Go To    ${Dashboard_URL}
+#         Click Element    ${Account link}
+#         Wait Until Element Is Visible    ${Account Heading}
+#         Click Element    ${Orders Link}
+#         Wait Until Element Is Visible    ${Account Orders Head}
+#         Page Should Contain    ${Current Order Number}
+
+        
+
 
 
         

@@ -7,6 +7,13 @@ ${PASSWORD}         109220
 ${Login_URL}        https://demowebshop.tricentis.com/login
 ${Dashboard_URL}    https://demowebshop.tricentis.com/
 ${Browser}          chrome
+${Fname}        M Saad 
+${Lname}        Masood
+${City}        Sargodha
+${Address}        Hno.15 Main Street Waris Town Sargodha
+${Zipcode}        40100
+${CHROME_OPTIONS}    --disable-save-password-bubble
+
 
 #    Register Variables
 ${Register_URL}        https://demowebshop.tricentis.com/register
@@ -125,4 +132,40 @@ ${NextDa Air Cost}        xpath=(//strong[@class="option-name"])[2]
 ${2nd Day Air Cost}        xpath=(//strong[@class="option-name"])[3]
 ${In Store Pickup Cost}        xpath=(//strong[@class="option-name"])[4]
 
-
+#       Locators for Checkout 
+${Accepting Terms and Conditions}        id=termsofservice
+${Checkout Button}                    id=checkout
+${Checkout Heading}        xpath=//h1[.="Checkout"]
+${Select Billing Address}          id=billing-address-select
+${Fname in Billing Add}        id=BillingNewAddress_FirstName
+${Lname in Billing Add}        id=BillingNewAddress_LastName
+${Country Selector in Billing Add}        id=BillingNewAddress_CountryId
+${Store Pickup Statement}        xpath=//i[.="Pick up your items at the store (put your store address here)"]
+${State Selector in Billing Add}           id=BillingNewAddress_StateProvinceId
+${City in Billing Add}            id=BillingNewAddress_City
+${Address1}            id=BillingNewAddress_Address1
+${Zipcode in Billing Add}        id=BillingNewAddress_ZipPostalCode
+${Phone Number in Billing Add}        id=BillingNewAddress_PhoneNumber
+${Continue Button in Billing Add}        xpath=(//input[@class="button-1 new-address-next-step-button"])[1]
+${Continue for Shipping Add}        xpath=//div[@id="shipping-buttons-container"]//input[@class="button-1 new-address-next-step-button"]
+${Ground Shipping Method}        id=shippingoption_0
+${Shipping Method}            shippingoption
+${Shipping Option}            Ground___Shipping.FixedRate
+${Shipping Method Continue Button}        xpath=//input[@class="button-1 shipping-method-next-step-button"]
+${Billing Option}        xpath=//label[.="Cash On Delivery (COD) (7.00)"]
+${Payment Method Group}        paymentmethod
+${Cash On Delivery OPtion}            Payments.CashOnDelivery
+${Continue Button for Billing Option}        xpath=//input[@class="button-1 payment-method-next-step-button"]
+${Payment Ingormation}        xpath=//p[.="You will pay by COD"]
+${Continue Button for Payment Information}        xpath=//input[@class="button-1 payment-info-next-step-button"]
+${Product pic in Confirm Section}        xpath=//img[@src="https://demowebshop.tricentis.com/content/images/thumbs/0000217_casual-golf-belt_80.jpeg"]
+${Final Order Confirmation Button}        xpath=//input[@class="button-1 confirm-order-next-step-button"]
+${Order Confirmation Statement}        xpath=//strong[.="Your order has been successfully processed!"]
+${Order Number}        xpath=(//ul[@class="details"]//li)[1]
+${Continue and Accept Confirmation}    xpath=//input[@class="button-2 order-completed-continue-button"]
+      
+#    Locators for Order History
+${Account link}        xpath=//div[@class="header-links"]//a[@class="account"]
+${Account Heading}        xpath=//h1[.="My account - Customer info"]
+${Orders Link}            xpath=(//a[.="Orders"])[1]
+${Account Orders Head}    xpath=//h1[.="My account - Orders"]
