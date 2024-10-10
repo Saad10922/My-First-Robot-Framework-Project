@@ -3,7 +3,9 @@ Library      SeleniumLibrary
 Library    ../../robot-env/Lib/site-packages/robot/libraries/Process.py
 Library    ../../robot-env/Lib/site-packages/robot/libraries/OperatingSystem.py
 Library    ../../robot-env/Lib/site-packages/robot/libraries/Collections.py
+Library    Custom_Functions.py
 Resource    ../locators/locators.robot
+
 
 
 *** Keywords ***
@@ -100,9 +102,11 @@ Search for Invalid Product
         Page Should Contain    ${Text_for_invalid_Search} 
 Search with empty SearchBar
     [Documentation]    Clicks the search button with an empty search bar and verifies the error message.
-
+        
         Click Button    ${Search_button}
-        Page Should Contain    ${Text_for_invalid_Search} 
+        # Page Should Contain    ${Text_for_invalid_Search} 
+         Handle Alert    accept  
+        
 
 
 #        URL Verification
@@ -382,6 +386,8 @@ Verify the Delivery Cost Before Checkout
 #    Keywords for Checkout Functionality
 
 Test the Checkout Functionality by giving all the valid credentials
+        [Documentation]    This test validates the checkout process from adding a product to cart, filling out the billing details, selecting the shipping method, and confirming the final order.
+
         Go To    ${Dashboard_URL}
         Click link    ${Apperal and Shoes Cat}
         Wait Until Element Is Visible    ${Apperal and Shoes Heading}
@@ -419,52 +425,59 @@ Test the Checkout Functionality by giving all the valid credentials
         ${Current Order Number}=     Get Text    ${Order Number}
         Click Button    ${Continue and Accept Confirmation}
 
-        
-# #        Keywords for Ordr History
-# Verify that the order you have confirmed appears in the Order History
-#         Go To    ${Dashboard_URL}
-#         Click link    ${Apperal and Shoes Cat}
-#         Wait Until Element Is Visible    ${Apperal and Shoes Heading}
-#         Click Element   ${Casual Belt img}
-#         Wait Until Element Is Visible    ${Product Heading}
-#         Click Button    ${Add to Cart Button}
-#         Click Element   ${Cart link}
-#         Select From List By Value    ${Country Select}    57
-#         Input Text    ${ZipcodeField}    40100
-#         Select Checkbox    ${Accepting Terms and Conditions}
-#         Click Button    ${Checkout Button}
-#         Select From List By Label    ${Select Billing Address}    New Address
-#         Input Text   ${Fname in Billing Add}    ${Fname}
-#         Input Text    ${Lname in Billing Add}    ${Lname}
-#         Select From List By Value   ${Country Selector in Billing Add}    57
-#         Select From List By Value    ${State Selector in Billing Add}      0
-#         Input Text    ${City in Billing Add}    ${City} 
-#         Input Text    ${Address1}    ${Address}
-#         Input Text    ${Zipcode in Billing Add}    ${Zipcode}
-#         Input Text    ${Phone Number in Billing Add}       03267553848
-#         Click Button    ${Continue Button in Billing Add}
-#         Wait Until Element Is Visible    ${Store Pickup Statement}
-#         Click Button    ${Continue for Shipping Add}
-#         Wait Until Element Is Visible    ${Ground Shipping Method}
-#         Select Radio Button    ${Shipping Method}    ${Shipping Option}
-#         Click Button    ${Shipping Method Continue Button}
-#         Wait Until Element Is Visible    ${Billing Option}
-#         Select Radio Button    ${Payment Method Group}    ${Cash On Delivery OPtion}
-#         Click Button    ${Continue Button for Billing Option}
-#         Wait Until Element Is Visible    ${Payment Ingormation}
-#         Click Button    ${Continue Button for Payment Information}
-#         Wait Until Element Is Visible    ${Product pic in Confirm Section}
-#         Click Button    ${Final Order Confirmation Button}
-#         Wait Until Element Is Visible    ${Order Confirmation Statement}
-#         ${Current Order Number}=     Get Text    ${Order Number}
-#         Click Button    ${Continue and Accept Confirmation}
-#         Go To    ${Dashboard_URL}
-#         Click Element    ${Account link}
-#         Wait Until Element Is Visible    ${Account Heading}
-#         Click Element    ${Orders Link}
-#         Wait Until Element Is Visible    ${Account Orders Head}
-#         Page Should Contain    ${Current Order Number}
+ 
+#        Keywords for Ordr History
+Verify that the order you have confirmed appears in the Order History
+        [Documentation]    This test validates that the confirmed order appears in the order history section of the user account.
 
+        Go To    ${Dashboard_URL}
+        Click link    ${Apperal and Shoes Cat}
+        Wait Until Element Is Visible    ${Apperal and Shoes Heading}
+        Click Element   ${Casual Belt img}
+        Wait Until Element Is Visible    ${Product Heading}
+        Click Button    ${Add to Cart Button}
+        Click Element   ${Cart link}
+        Select From List By Value    ${Country Select}    57
+        Input Text    ${ZipcodeField}    40100
+        Select Checkbox    ${Accepting Terms and Conditions}
+        Click Button    ${Checkout Button}
+        Select From List By Label    ${Select Billing Address}    New Address
+        Input Text   ${Fname in Billing Add}    ${Fname}
+        Input Text    ${Lname in Billing Add}    ${Lname}
+        Select From List By Value   ${Country Selector in Billing Add}    57
+        Select From List By Value    ${State Selector in Billing Add}      0
+        Input Text    ${City in Billing Add}    ${City} 
+        Input Text    ${Address1}    ${Address}
+        Input Text    ${Zipcode in Billing Add}    ${Zipcode}
+        Input Text    ${Phone Number in Billing Add}       03267553848
+        Click Button    ${Continue Button in Billing Add}
+        Wait Until Element Is Visible    ${Store Pickup Statement}
+        Click Button    ${Continue for Shipping Add}
+        Wait Until Element Is Visible    ${Ground Shipping Method}
+        Select Radio Button    ${Shipping Method}    ${Shipping Option}
+        Click Button    ${Shipping Method Continue Button}
+        Wait Until Element Is Visible    ${Billing Option}
+        Select Radio Button    ${Payment Method Group}    ${Cash On Delivery OPtion}
+        Click Button    ${Continue Button for Billing Option}
+        Wait Until Element Is Visible    ${Payment Ingormation}
+        Click Button    ${Continue Button for Payment Information}
+        Wait Until Element Is Visible    ${Product pic in Confirm Section}
+        Click Button    ${Final Order Confirmation Button}
+        Wait Until Element Is Visible    ${Order Confirmation Statement}
+        ${Current Order Number}=     Get Text    ${Order Number}
+        Click Button    ${Continue and Accept Confirmation}
+        Go To    ${Dashboard_URL}
+        Click Element    ${Account link}
+        Wait Until Element Is Visible    ${Account Heading}
+        Click Element    ${Orders Link}
+        Wait Until Element Is Visible    ${Account Orders Head}
+        ${Recent_Order}=    Get Text    ${Order_Number_in_Recent}
+        ${Result}=    Compare Strings Text    ${Current Order Number}    ${Recent_Order}
+        Should Be True    ${Result}
+        
+        
+       
+        
         
 
 

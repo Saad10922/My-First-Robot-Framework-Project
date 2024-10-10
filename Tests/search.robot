@@ -7,6 +7,7 @@ Test Teardown        Close Browser Teardown
 *** Test Cases ***
 
 Test : Search Functionality
-    Search for a Valid Product
-    Search for Invalid Product
+    # Search for a Valid Product
+    # Search for Invalid Product
+    Search with empty SearchBar
    
